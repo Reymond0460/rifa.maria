@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sorteos · Tiendita María3y</title>
+    <meta name="description" content="Participa en los sorteos de ropa de Tiendita María3y. Compra tu ticket en línea y recibe tus números por correo." />
+    <meta name="theme-color" content="#f9a8d0" />
+    <link rel="icon" href="/logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="demo-banner" class="demo-banner" hidden>
+      Modo demostración: los pagos están simulados y no se cobra nada.
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="Tiendita María3y, inicio">
+          <span class="logo-circle logo-sm"><img src="/logo.webp" alt="" width="44" height="44" /></span>
+          <span class="brand-name">Tiendita <em>María3y</em></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#sorteo">Sorteo</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#mis-tickets">Mis tickets</a>
+        </nav>
+        <a class="btn btn-primary btn-sm" href="#participar">Participar</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="sparkles" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Sorteos de la más rika</p>
+            <h1>
+              <span class="glitter">GANA ROPA</span>
+              <span class="glitter">LINDA</span>
+              <span class="script">con María 3y</span>
+            </h1>
+            <p class="hero-lead">
+              Tickets desde <strong data-precio></strong>. Compra en línea, recibe tus números por correo
+              y mira el sorteo en vivo por Instagram.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#participar">Quiero participar</a>
+              <a class="btn btn-ghost" href="#como-funciona">¿Cómo funciona?</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <span class="logo-circle logo-xl"><img src="/logo.webp" alt="Logo de Tiendita María3y" width="420" height="420" /></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="sorteo" class="section section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker kicker-gold">Sorteo activo</p>
+            <h2 data-sorteo-titulo></h2>
+            <p data-sorteo-descripcion></p>
+          </div>
+          <div class="prize-grid" id="premios"></div>
+          <dl class="facts">
+            <div><dt>Valor del ticket</dt><dd data-precio></dd></div>
+            <div><dt>Fecha del sorteo</dt><dd data-sorteo-fecha></dd></div>
+            <div><dt>Transmisión</dt><dd data-sorteo-transmision></dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Simple y seguro</p>
+            <h2>¿Cómo funciona?</h2>
+          </div>
+          <ol class="steps">
+            <li><span class="step-num">1</span><h3>Elige tus tickets</h3><p>Decide cuántos quieres. Más tickets, más opciones de ganar.</p></li>
+            <li><span class="step-num">2</span><h3>Paga en línea</h3><p>Pagas con Mercado Pago: tarjeta de débito, crédito o saldo en cuenta.</p></li>
+            <li><span class="step-num">3</span><h3>Recibe tus números</h3><p>Apenas se confirma el pago te llegan tus tickets al correo.</p></li>
+            <li><span class="step-num">4</span><h3>Mira el sorteo</h3><p>Sorteamos en vivo por Instagram y contactamos a quien gane.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="participar" class="section section-pink">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Participa ahora</p>
+            <h2>Elige tus tickets</h2>
+          </div>
+
+          <div class="checkout">
+            <div class="checkout-main">
+              <div class="card">
+                <h3>1. ¿Cuántos tickets quieres?</h3>
+                <div class="packs" id="packs" role="group" aria-label="Cantidad de tickets"></div>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" id="menos" aria-label="Quitar un ticket">−</button>
+                  <output id="cantidad" aria-live="polite">1</output>
+                  <button type="button" class="stepper-btn" id="mas" aria-label="Agregar un ticket">+</button>
+                </div>
+              </div>
+
+              <form class="card" id="form-compra" novalidate>
+                <h3>2. Completa tus datos</h3>
+                <div class="field">
+                  <label for="nombre">Nombre completo</label>
+                  <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+                  <small class="error" data-error="nombre"></small>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="rut">RUT</label>
+                    <input id="rut" name="rut" type="text" placeholder="12.345.678-K" maxlength="12" autocomplete="off" required />
+                    <small class="error" data-error="rut"></small>
+                  </div>
+                  <div class="field">
+                    <label for="telefono">Teléfono</label>
+                    <div class="input-prefix">
+                      <span>+56</span>
+                      <input id="telefono" name="telefono" type="tel" inputmode="numeric" placeholder="912345678" maxlength="9" autocomplete="tel-national" required />
+                    </div>
+                    <small class="error" data-error="telefono"></small>
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="email">Correo</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required />
+                    <small class="error" data-error="email"></small>
+                  </div>
+                  <div class="field">
+                    <label for="email2">Confirmar correo</label>
+                    <input id="email2" name="email2" type="email" autocomplete="off" required />
+                    <small class="error" data-error="email2"></small>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="instagram">Instagram <span class="optional">opcional</span></label>
+                  <input id="instagram" name="instagram" type="text" placeholder="@tuusuario" autocomplete="off" />
+                </div>
+                <label class="check">
+                  <input id="acepto" name="acepto" type="checkbox" required />
+                  <span>Tengo 18 años o más y acepto las <button type="button" class="link" id="ver-bases">bases del sorteo</button>.</span>
+                </label>
+                <small class="error" data-error="acepto"></small>
+
+                <button type="submit" class="btn btn-pay" id="pagar">
+                  Pagar con Mercado Pago
+                </button>
+                <p class="help">¿Dudas? Escríbenos por <a data-wa-link target="_blank" rel="noopener">WhatsApp</a>.</p>
+              </form>
+            </div>
+
+            <aside class="card summary" aria-label="Resumen de la compra">
+              <h3>Resumen</h3>
+              <div class="summary-line"><span>Tickets</span><strong id="res-cantidad">1</strong></div>
+              <div class="summary-line"><span>Valor por ticket</span><strong data-precio></strong></div>
+              <div class="summary-total"><span>Total</span><strong id="res-total"></strong></div>
+              <p class="summary-note">Cada ticket es una imagen digital numerada que llega a tu correo.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="mis-tickets" class="section section-dark">
+        <div class="container narrow">
+          <div class="section-heading">
+            <p class="kicker kicker-gold">¿Ya participaste?</p>
+            <h2>Recupera tus tickets</h2>
+            <p>Ingresa el correo con el que compraste y te enviaremos un enlace privado para ver tus números.</p>
+          </div>
+          <form class="recover" id="form-recuperar" novalidate>
+            <label class="sr-only" for="rec-email">Correo electrónico</label>
+            <input id="rec-email" type="email" placeholder="tucorreo@ejemplo.cl" autocomplete="email" required />
+            <button type="submit" class="btn btn-gold">Enviarme el enlace</button>
+          </form>
+          <p class="recover-msg" id="rec-msg" role="status"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="logo-circle logo-sm"><img src="/logo.webp" alt="" width="44" height="44" /></span>
+        <p>
+          © <span id="anio"></span> Tiendita María3y · Santiago, Chile<br />
+          <a data-ig-link target="_blank" rel="noopener">@tiendita.maria3y</a> ·
+          <a data-wa-link target="_blank" rel="noopener" data-wa-text></a>
+        </p>
+      </div>
+    </footer>
+
+    <div class="floating" aria-label="Contacto rápido">
+      <a class="fab fab-ig" data-ig-link target="_blank" rel="noopener" aria-label="Abrir Instagram de la tienda">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="fab fab-wa" data-wa-link target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><g transform="translate(7.2 7) scale(0.4)"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg>
+      </a>
+    </div>
+
+    <dialog id="modal" class="modal">
+      <div class="modal-body" id="modal-body"></div>
+      <form method="dialog"><button class="btn btn-primary btn-sm">Cerrar</button></form>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
