@@ -1,4 +1,5 @@
 import { tienda, sorteo, API_URL } from './config.js';
+import { iniciarCookies } from './cookies.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -243,3 +244,4 @@ pintarContenido();
 iniciarCantidad();
 iniciarFormulario();
 iniciarRecuperar();
+iniciarCookies();

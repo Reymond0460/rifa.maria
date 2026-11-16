@@ -7,9 +7,6 @@
     <meta name="description" content="Participa en los sorteos de ropa de Tiendita María3y. Compra tu ticket en línea y recibe tus números por correo." />
     <meta name="theme-color" content="#f9a8d0" />
     <link rel="icon" href="/logo.webp" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
@@ -155,6 +152,7 @@
                 <button type="submit" class="btn btn-pay" id="pagar">
                   Pagar con Mercado Pago
                 </button>
+                <p class="legal">Usaremos tus datos solo para gestionar tu compra y el sorteo. Revisa la <a href="/privacidad">política de privacidad</a>.</p>
                 <p class="help">¿Dudas? Escríbenos por <a data-wa-link target="_blank" rel="noopener">WhatsApp</a>.</p>
               </form>
             </div>
@@ -193,7 +191,10 @@
         <p>
           © <span id="anio"></span> Tiendita María3y · Santiago, Chile<br />
           <a data-ig-link target="_blank" rel="noopener">@tiendita.maria3y</a> ·
-          <a data-wa-link target="_blank" rel="noopener" data-wa-text></a>
+          <a data-wa-link target="_blank" rel="noopener" data-wa-text></a><br />
+          <a href="/privacidad">Política de privacidad</a> ·
+          <a href="/privacidad#cookies">Cookies</a> ·
+          <button type="button" class="link link-footer" data-cookie-prefs>Preferencias de cookies</button>
         </p>
       </div>
     </footer>
@@ -205,6 +206,18 @@
       <a class="fab fab-wa" data-wa-link target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
         <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><g transform="translate(7.2 7) scale(0.4)"><path fill="currentColor" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg>
       </a>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Aviso de cookies" hidden>
+      <p>
+        Usamos solo el almacenamiento necesario para que la página funcione y para recordar esta elección.
+        Si más adelante medimos visitas, se activará únicamente si aceptas.
+        <a href="/privacidad#cookies">Más información</a>
+      </p>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-ghost btn-sm" data-cookie-choice="necessary">Solo necesarias</button>
+        <button type="button" class="btn btn-primary btn-sm" data-cookie-choice="all">Aceptar todas</button>
+      </div>
     </div>
 
     <dialog id="modal" class="modal">
